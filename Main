@@ -21,7 +21,7 @@ splashScreen.Parent = gui
 local image = Instance.new("ImageLabel")
 image.Size = UDim2.new(0, 200, 0, 200) -- حجم الصورة
 image.Position = UDim2.new(0.5, -100, 0, 50) -- وضع الصورة في منتصف أعلى الشاشة
-image.Image = "rbxassetid://BridgeDuel" -- استبدل BridgeDuel بمعرف الصورة الخاص بك إن لزم
+image.Image = "rbxassetid://128024804148018" -- استبدل BridgeDuel بمعرف الصورة الخاص بك إن لزم
 image.BackgroundTransparency = 1
 image.Parent = splashScreen
 
