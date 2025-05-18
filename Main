@@ -255,4 +255,3 @@ Character\:FindFirstChildOfClass("Humanoid").WalkSpeed = RunSpeedOriginal
 end
 end)
 
-كلمة Version تختفي لما تروح الشاشه السوداء
