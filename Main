@@ -1,16 +1,16 @@
--- متغيرات عامة
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local TweenService = game:GetService("TweenService")
-local UIS = game:GetService("UserInputService")
+\-- متغيرات عامة
+local Players = game\:GetService("Players")
+local RunService = game\:GetService("RunService")
+local TweenService = game\:GetService("TweenService")
+local UIS = game\:GetService("UserInputService")
 local LocalPlayer = Players.LocalPlayer
-local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded\:Wait()
 
--- واجهة المستخدم
+\-- واجهة المستخدم
 local gui = Instance.new("ScreenGui", game.CoreGui)
 gui.Name = "KillAuraAndHackGUI"
 
--- شاشة البداية (Splash Screen)
+\-- شاشة البداية (Splash Screen)
 local splashScreen = Instance.new("Frame")
 splashScreen.Size = UDim2.new(1, 0, 1, 0)
 splashScreen.BackgroundColor3 = Color3.new(0, 0, 0)
@@ -19,9 +19,9 @@ splashScreen.Parent = gui
 
 local label1 = Instance.new("TextLabel")
 label1.Size = UDim2.new(1, 0, 0, 50)
-label1.Position = UDim2.new(0, 0, 0.5, -60)
+label1.Position = UDim2.new(0, 0, 0.5, -30)
 label1.BackgroundTransparency = 1
-label1.Text = "MiracleHub"
+label1.Text = "Made By Dxoma"
 label1.TextColor3 = Color3.new(1, 1, 1)
 label1.Font = Enum.Font.Gotham
 label1.TextSize = 28
@@ -32,9 +32,9 @@ label1.Parent = splashScreen
 
 local label2 = Instance.new("TextLabel")
 label2.Size = UDim2.new(1, 0, 0, 30)
-label2.Position = UDim2.new(0, 0, 0.5, -10)
+label2.Position = UDim2.new(0, 0, 0.5, 25)
 label2.BackgroundTransparency = 1
-label2.Text = "Made By: EpicDxoma"
+label2.Text = "Version: 1.2"
 label2.TextColor3 = Color3.new(1, 1, 1)
 label2.Font = Enum.Font.Gotham
 label2.TextSize = 20
@@ -43,78 +43,20 @@ label2.TextStrokeColor3 = Color3.new(0, 0, 0)
 label2.TextWrapped = true
 label2.Parent = splashScreen
 
-local image = Instance.new("ImageLabel")
-image.Size = UDim2.new(0, 100, 0, 100)
-image.Position = UDim2.new(0.5, -50, 0.5, 30)
-image.BackgroundTransparency = 1
-image.Image = "rbxassetid://128024804148018"
-image.Parent = splashScreen
-
-local versionLabel = Instance.new("TextLabel")
-versionLabel.Size = UDim2.new(0, 100, 0, 30)
-versionLabel.Position = UDim2.new(0, 10, 1, -40)
-versionLabel.BackgroundTransparency = 1
-versionLabel.Text = "Version: 1.3"
-versionLabel.Font = Enum.Font.GothamBold
-versionLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-versionLabel.TextStrokeTransparency = 0.5
-versionLabel.TextStrokeColor3 = Color3.new(0, 0, 0)
-versionLabel.TextScaled = true
-versionLabel.Parent = splashScreen
-versionLabel.ZIndex = 11
-
--- عداد FPS
-local fpsFrame = Instance.new("Frame")
-fpsFrame.Size = UDim2.new(0, 100, 0, 30)
-fpsFrame.Position = UDim2.new(0, 10, 1, -40)
-fpsFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-fpsFrame.BackgroundTransparency = 0.4
-fpsFrame.BorderSizePixel = 0
-fpsFrame.Parent = gui
-fpsFrame.ZIndex = 10
-fpsFrame.Visible = false
-
-local fpsLabel = Instance.new("TextLabel")
-fpsLabel.Size = UDim2.new(1, 0, 1, 0)
-fpsLabel.BackgroundTransparency = 1
-fpsLabel.Text = "FPS: 0"
-fpsLabel.Font = Enum.Font.GothamBold
-fpsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-fpsLabel.TextStrokeTransparency = 0.5
-fpsLabel.TextStrokeColor3 = Color3.new(0, 0, 0)
-fpsLabel.TextScaled = true
-fpsLabel.Parent = fpsFrame
-fpsLabel.ZIndex = 11
-
-local frameCount = 0
-local elapsedTime = 0
-
-RunService.RenderStepped:Connect(function(dt)
-	frameCount = frameCount + 1
-	elapsedTime = elapsedTime + dt
-	if elapsedTime >= 1 then
-		local fps = math.floor(frameCount / elapsedTime + 0.5)
-		fpsLabel.Text = "FPS: " .. tostring(fps)
-		frameCount = 0
-		elapsedTime = 0
-	end
-end)
-
 delay(2, function()
-	local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-	local tween = TweenService:Create(splashScreen, tweenInfo, {BackgroundTransparency = 1})
-	tween:Play()
-	tween.Completed:Wait()
-	splashScreen:Destroy()
-	fpsFrame.Visible = true
+local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+local tween = TweenService\:Create(splashScreen, tweenInfo, {BackgroundTransparency = 1})
+tween\:Play()
+tween.Completed\:Wait()
+splashScreen\:Destroy()
 end)
 
--- KillAura
+\-- KillAura
 local killAuraButton = Instance.new("TextButton")
 killAuraButton.Size = UDim2.new(0, 130, 0, 40)
 killAuraButton.Position = UDim2.new(0, 20, 0.4, 0)
 killAuraButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-killAuraButton.Text = "🎯 KillAura [OFF]"
+killAuraButton.Text = "🎯 KillAura \[OFF]"
 killAuraButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 killAuraButton.Font = Enum.Font.GothamBold
 killAuraButton.TextSize = 16
@@ -123,90 +65,93 @@ killAuraButton.AutoButtonColor = false
 killAuraButton.Parent = gui
 
 local toggled = false
-local ATTACK_RANGE = 20
+local ATTACK\_RANGE = 20
 local cps = 14
 local interval = 1 / cps
 local lastAttackTime = 0
 local currentTarget = nil
 
 local function animateButton(button, on, text)
-	local goal = {
-		BackgroundColor3 = on and Color3.fromRGB(0, 200, 0) or Color3.fromRGB(30, 30, 30),
-		Size = on and UDim2.new(0, 140, 0, 45) or UDim2.new(0, 130, 0, 40),
-	}
-	local tween = TweenService:Create(button, TweenInfo.new(0.25), goal)
-	tween:Play()
-	button.Text = text
+local goal = {
+BackgroundColor3 = on and Color3.fromRGB(0, 200, 0) or Color3.fromRGB(30, 30, 30),
+Size = on and UDim2.new(0, 140, 0, 45) or UDim2.new(0, 130, 0, 40),
+}
+local tween = TweenService\:Create(button, TweenInfo.new(0.25), goal)
+tween\:Play()
+button.Text = text
 end
 
-killAuraButton.MouseButton1Click:Connect(function()
-	toggled = not toggled
-	animateButton(killAuraButton, toggled, toggled and "🎯 KillAura [ON]" or "🎯 KillAura [OFF]")
+killAuraButton.MouseButton1Click\:Connect(function()
+toggled = not toggled
+animateButton(killAuraButton, toggled, toggled and "🎯 KillAura \[ON]" or "🎯 KillAura \[OFF]")
 end)
 
-UIS.InputBegan:Connect(function(input, gpe)
-	if gpe then return end
-	if UIS:IsKeyDown(Enum.KeyCode.LeftControl) and input.KeyCode == Enum.KeyCode.LeftAlt then
-		toggled = not toggled
-		animateButton(killAuraButton, toggled, toggled and "🎯 KillAura [ON]" or "🎯 KillAura [OFF]")
-	end
+UIS.InputBegan\:Connect(function(input, gpe)
+if gpe then return end
+if UIS\:IsKeyDown(Enum.KeyCode.LeftControl) and input.KeyCode == Enum.KeyCode.LeftAlt then
+toggled = not toggled
+animateButton(killAuraButton, toggled, toggled and "🎯 KillAura \[ON]" or "🎯 KillAura \[OFF]")
+end
 end)
 
 local function attack()
-	local tool = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Tool")
-	if tool then
-		tool:Activate()
-	end
+local tool = LocalPlayer.Character and LocalPlayer.Character\:FindFirstChildOfClass("Tool")
+if tool then
+tool\:Activate()
+end
 end
 
 local function rotateTo(target)
-	if not Character or not Character:FindFirstChild("HumanoidRootPart") then return end
-	if not target or not target:FindFirstChild("HumanoidRootPart") then return end
-	local myHRP = Character.HumanoidRootPart
-	local targetHRP = target.HumanoidRootPart
-	local dir = (targetHRP.Position - myHRP.Position).Unit
-	myHRP.CFrame = CFrame.new(myHRP.Position, myHRP.Position + dir)
+if not Character or not Character\:FindFirstChild("HumanoidRootPart") then return end
+if not target or not target\:FindFirstChild("HumanoidRootPart") then return end
+local myHRP = Character.HumanoidRootPart
+local targetHRP = target.HumanoidRootPart
+local dir = (targetHRP.Position - myHRP.Position).Unit
+myHRP.CFrame = CFrame.new(myHRP.Position, myHRP.Position + dir)
 end
 
 local function findTarget()
-	local nearest, minDist = nil, ATTACK_RANGE
-	for _, player in pairs(Players:GetPlayers()) do
-		if player ~= LocalPlayer and player.Character and player.Character:FindFirstFirstChild("HumanoidRootPart") then
-			local dist = (player.Character.HumanoidRootPart.Position - Character.HumanoidRootPart.Position).Magnitude
-			local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
-			if dist <= minDist and humanoid and humanoid.Health > 0 then
-				nearest = player.Character
-				minDist = dist
-			end
-		end
-	end
-	return nearest
+local nearest, minDist = nil, ATTACK\_RANGE
+for \_, player in pairs(Players\:GetPlayers()) do
+if player \~= LocalPlayer and player.Character and player.Character\:FindFirstChild("HumanoidRootPart") then
+local dist = (player.Character.HumanoidRootPart.Position - Character.HumanoidRootPart.Position).Magnitude
+local humanoid = player.Character\:FindFirstChildOfClass("Humanoid")
+if dist <= minDist and humanoid and humanoid.Health > 0 then
+nearest = player.Character
+minDist = dist
+end
+end
+end
+return nearest
 end
 
-RunService.RenderStepped:Connect(function()
-	if not toggled then return end
-	Character = LocalPlayer.Character
-	if not Character or not Character:FindFirstChild("HumanoidRootPart") then return end
+RunService.RenderStepped\:Connect(function()
+if not toggled then return end
+Character = LocalPlayer.Character
+if not Character or not Character\:FindFirstChild("HumanoidRootPart") then return end
 
-	if not currentTarget or not currentTarget:FindFirstChild("HumanoidRootPart") or (currentTarget.HumanoidRootPart.Position - Character.HumanoidRootPart.Position).Magnitude > ATTACK_RANGE then
-		currentTarget = findTarget()
-	end
+```
+if not currentTarget or not currentTarget:FindFirstChild("HumanoidRootPart") or (currentTarget.HumanoidRootPart.Position - Character.HumanoidRootPart.Position).Magnitude > ATTACK_RANGE then
+	currentTarget = findTarget()
+end
 
-	if currentTarget then
-		rotateTo(currentTarget)
-		if tick() - lastAttackTime >= interval then
-			lastAttackTime = tick()
-			attack()
-		end
+if currentTarget then
+	rotateTo(currentTarget)
+	if tick() - lastAttackTime >= interval then
+		lastAttackTime = tick()
+		attack()
 	end
+end
+```
+
 end)
 
--- زر Hack
+\-- زر Hack
 local hackButton = Instance.new("TextButton")
 hackButton.Size = UDim2.new(0, 130, 0, 40)
 hackButton.Position = UDim2.new(0, 20, 0.4, 55)
 hackButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-hackButton.Text = "💻 Hack [OFF]"
+hackButton.Text = "💻 Hack \[OFF]"
 hackButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 hackButton.Font = Enum.Font.GothamBold
 hackButton.TextSize = 16
@@ -225,13 +170,186 @@ espFolder.Name = "ESPFolder"
 local espObjects = {}
 
 local function noclipLoop()
-	while noclipEnabled do
-		wait()
-		local character = LocalPlayer.Character
-		if character then
-			for _, part in pairs(character:GetChildren()) do
-				if part:IsA("BasePart") then
-					part.CanCollide = false
-				end
-::contentReference[oaicite:5]{index=5}
- 
+while noclipEnabled do
+wait()
+local character = LocalPlayer.Character
+if character then
+for \_, part in pairs(character\:GetChildren()) do
+if part\:IsA("BasePart") then
+part.CanCollide = false
+end
+end
+end
+end
+end
+
+game\:GetService("UserInputService").JumpRequest\:Connect(function()
+if infiniteJumpEnabled then
+local humanoid = LocalPlayer.Character and LocalPlayer.Character\:FindFirstChildOfClass("Humanoid")
+if humanoid then
+humanoid\:ChangeState(Enum.HumanoidStateType.Jumping)
+end
+end
+end)
+
+local function updateESP()
+while espEnabled do
+wait(0.1)
+for \_, plr in pairs(Players\:GetPlayers()) do
+if plr \~= LocalPlayer and plr.Character and plr.Character\:FindFirstChild("Head") then
+if not espObjects\[plr] then
+local billboard = Instance.new("BillboardGui")
+billboard.Adornee = plr.Character.Head
+billboard.AlwaysOnTop = true
+billboard.ExtentsOffset = Vector3.new(0, 2, 0)
+billboard.Size = UDim2.new(0, 100, 0, 40)
+billboard.Parent = espFolder
+
+```
+				local label = Instance.new("TextLabel")
+				label.BackgroundTransparency = 1
+				label.Size = UDim2.new(1, 0, 1, 0)
+				label.Text = plr.Name
+				label.TextColor3 = plr.TeamColor.Color
+				label.TextStrokeTransparency = 0.4
+				label.TextStrokeColor3 = Color3.new(0, 0, 0)
+				label.Font = Enum.Font.GothamBold
+				label.TextScaled = true
+				label.Parent = billboard
+
+				espObjects[plr] = billboard
+			end
+		else
+			if espObjects[plr] then
+				espObjects[plr]:Destroy()
+				espObjects[plr] = nil
+			end
+		end
+	end
+end
+for _, obj in pairs(espObjects) do
+	obj:Destroy()
+end
+espObjects = {}
+```
+
+end
+
+local function toggleESP(state)
+espEnabled = state
+if state then
+espFolder.Parent = game.CoreGui
+coroutine.wrap(updateESP)()
+else
+espFolder.Parent = nil
+end
+end
+
+hackButton.MouseButton1Click\:Connect(function()
+hackEnabled = not hackEnabled
+animateButton(hackButton, hackEnabled, hackEnabled and "💻 Hack \[ON]" or "💻 Hack \[OFF]")
+
+```
+noclipEnabled = hackEnabled
+infiniteJumpEnabled = hackEnabled
+toggleESP(hackEnabled)
+
+if hackEnabled then
+	spawn(noclipLoop)
+else
+	local humanoid = LocalPlayer.Character and LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+	if humanoid then
+		humanoid.WalkSpeed = 16
+		humanoid.JumpPower = 50
+	end
+	for _, part in pairs(anchoredParts or {}) do
+		if part and part:IsA("BasePart") then
+			part.Anchored = false
+		end
+	end
+	anchoredParts = {}
+	isFixed = false
+end
+```
+
+end)
+
+\-- زر لتثبيت الشخصية
+local isFixed = false
+local anchoredParts = {}
+
+UIS.InputBegan\:Connect(function(input, gpe)
+if gpe then return end
+if not hackEnabled then return end
+if input.UserInputType == Enum.UserInputType.Keyboard then
+if input.KeyCode == Enum.KeyCode.KeypadEight or input.KeyCode == Enum.KeyCode.Eight then
+local humanoid = LocalPlayer.Character and LocalPlayer.Character\:FindFirstChildOfClass("Humanoid")
+if humanoid then
+local char = LocalPlayer.Character
+if not isFixed then
+humanoid.WalkSpeed = 0
+humanoid.JumpPower = 0
+anchoredParts = {}
+for \_, part in pairs(char\:GetChildren()) do
+if part\:IsA("BasePart") and not part.Anchored then
+table.insert(anchoredParts, part)
+part.Anchored = true
+end
+end
+isFixed = true
+else
+humanoid.WalkSpeed = 16
+humanoid.JumpPower = 50
+for \_, part in pairs(anchoredParts) do
+if part and part\:IsA("BasePart") then
+part.Anchored = false
+end
+end
+anchoredParts = {}
+isFixed = false
+end
+end
+end
+end
+end)
+
+LocalPlayer.CharacterRemoving\:Connect(function()
+anchoredParts = {}
+isFixed = false
+end)
+
+\-- ========== عداد FPS ==========
+local fpsFrame = Instance.new("Frame")
+fpsFrame.Size = UDim2.new(0, 100, 0, 30)
+fpsFrame.Position = UDim2.new(0, 10, 1, -40)
+fpsFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+fpsFrame.BackgroundTransparency = 0.4
+fpsFrame.BorderSizePixel = 0
+fpsFrame.Parent = gui
+fpsFrame.ZIndex = 10
+
+local fpsLabel = Instance.new("TextLabel")
+fpsLabel.Size = UDim2.new(1, 0, 1, 0)
+fpsLabel.BackgroundTransparency = 1
+fpsLabel.Text = "FPS: 0"
+fpsLabel.Font = Enum.Font.GothamBold
+fpsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+fpsLabel.TextStrokeTransparency = 0.5
+fpsLabel.TextStrokeColor3 = Color3.new(0, 0, 0)
+fpsLabel.TextScaled = true
+fpsLabel.Parent = fpsFrame
+fpsLabel.ZIndex = 11
+
+local frameCount = 0
+local elapsedTime = 0
+
+RunService.RenderStepped\:Connect(function(dt)
+frameCount = frameCount + 1
+elapsedTime = elapsedTime + dt
+if elapsedTime >= 1 then
+local fps = math.floor(frameCount / elapsedTime + 0.5)
+fpsLabel.Text = "FPS: " .. tostring(fps)
+frameCount = 0
+elapsedTime = 0
+end
+end)
